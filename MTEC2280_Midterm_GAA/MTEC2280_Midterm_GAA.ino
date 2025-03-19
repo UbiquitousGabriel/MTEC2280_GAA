@@ -32,7 +32,7 @@ void setup() {
   pinMode(ledPinC, OUTPUT);
   pinMode(ledPinD, OUTPUT);
 
-  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
   
   // pinMode(potPinA, INPUT);
   // pinMode(potPinB, INPUT);
@@ -49,10 +49,10 @@ void loop() {
   currentTime = millis();
 
   //reads the state of the pushbutton value
-  buttonState = digitalRead(buttonPin);
+  buttonState = !digitalRead(buttonPin);
 
   //
-  if (buttonState == HIGH){
+  if (buttonState == LOW){
     projectEnabled = true;
   } else {
     projectEnabled = false;
@@ -104,7 +104,6 @@ void piezoSong() {
     
 
 }
-
 
 
 
